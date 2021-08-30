@@ -1,0 +1,18 @@
+{
+  "name": "com.krylov-na.neat.tweening",
+  "version": "1.0.0",
+  "displayName": "Neat.Tweening",
+  "description": "Tweening library",
+  "keywords": [
+    "animation",
+    "framework",
+    "tweening"
+  ],
+  "author": {
+    "name": "Nikita Krylov",
+    "email": "krylov.nikita.a@gmail.com",
+    "url": "https://github.com/krylov-na"
+  },
+  "type": "library",
+  "hideInEditor": false
+}

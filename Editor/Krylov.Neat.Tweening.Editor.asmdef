@@ -1,0 +1,18 @@
+{
+    "name": "Krylov.Neat.Tweening.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e361546c5c8e1644e975668e2912389a"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
