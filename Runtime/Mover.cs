@@ -13,6 +13,8 @@ namespace Neat.Tweening {
         public T min;
         public T max;
 
+        [Range(0, 2)] public float offset;
+
         [SerializeField] private Accessor<T> accessor;
 
         private T initialValue;
@@ -31,7 +33,7 @@ namespace Neat.Tweening {
         private void Update() {
             if (!accessor.Valid) return;
 
-            var t = Mathf.PingPong(Time.time * speed, 1);
+            var t = Mathf.PingPong(Time.time * speed + offset, 1);
 
             var clamped = Mathf.Clamp01(t);
             var evaluated = animationCurve.Evaluate(clamped);
