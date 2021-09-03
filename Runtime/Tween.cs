@@ -94,6 +94,12 @@ namespace Neat.Tweening {
             accessor.Value = deltaMode ? this.Add(initialValue, current) : current;
         }
 
+        private void OnDestroy() {
+            if (animationContext != null) {
+                animationContext.Unregister(this);
+            }
+        }
+
         public void SetValue(T newValue, bool instant = false, float delay = 0f) {
             if (instant) {
                 endValue = newValue;

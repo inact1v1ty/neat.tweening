@@ -19,6 +19,10 @@ namespace Neat.Tweening {
             }
         }
 
+        public void Unregister(Tween tween) {
+            tweens.Remove(tween);
+        }
+
         public void SetState(int state, bool forceInstant = false) {
             tweens.ForEach(tween => tween.SetState(state, forceInstant));
             currentState = state;
