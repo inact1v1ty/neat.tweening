@@ -104,7 +104,7 @@ namespace Neat.Tweening {
             else {
                 var distanceTo = (Math.Abs(endTime - (-100f)) < 1e-6 || done)
                     ? accessor.Value
-                    : (deltaMode ? this.Add(endValue, initialValue) : endValue);
+                    : endValue;
                 var distance = Distance(distanceTo, newValue);
 
                 if (distance < 1e-3) {
