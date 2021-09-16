@@ -2,9 +2,16 @@
 using UnityEngine;
 
 namespace Neat.Tweening {
+    public enum MoverType {
+        PingPong = 0,
+        Repeat = 1
+    }
+
     public abstract class Mover<T> : MonoBehaviour
         where T : IEquatable<T> {
         public float speed = 1;
+
+        public MoverType moverType = MoverType.PingPong;
 
         public bool deltaMode;
 
@@ -33,7 +40,8 @@ namespace Neat.Tweening {
         private void Update() {
             if (!accessor.Valid) return;
 
-            var t = Mathf.PingPong(Time.time * speed + offset, 1);
+            var it = Time.time * speed + offset;
+            var t = moverType == MoverType.Repeat ? Mathf.Repeat(it, 1) : Mathf.PingPong(it, 1);
 
             var clamped = Mathf.Clamp01(t);
             var evaluated = animationCurve.Evaluate(clamped);
