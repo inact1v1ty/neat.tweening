@@ -27,6 +27,8 @@ namespace Neat.Tweening {
 
         public float time = 1;
 
+        public bool unscaledTime;
+
         public bool deltaMode;
 
         public AnimationCurve animationCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
@@ -83,7 +85,8 @@ namespace Neat.Tweening {
                 return;
             }
 
-            var t = (Time.time - startTime) / (endTime - startTime);
+            var currentTime = unscaledTime ? Time.unscaledTime : Time.time;
+            var t = (currentTime - startTime) / (endTime - startTime);
             if (t >= 1) {
                 done = true;
             }
@@ -118,7 +121,8 @@ namespace Neat.Tweening {
                 }
 
                 startValue = deltaMode ? this.Sub(accessor.Value, initialValue) : accessor.Value;
-                startTime = Time.time + delay;
+                var currentTime = unscaledTime ? Time.unscaledTime : Time.time;
+                startTime = currentTime + delay;
 
                 endValue = newValue;
 
